@@ -7,23 +7,24 @@ services:
     ports:
       - "3306:3306"
     environment:
+      # Username and password is root
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: minioasis
-  minio:
-    image: minio/minio:latest
-    command: server /data
-    restart: always
-    environment:
-      MINIO_ROOT_USER: minioaccesskey
-      MINIO_ROOT_PASSWORD: miniosecretkey
-    volumes:
-      - minio_data:/data
-    ports:
-      - "9000:9000"
+  # minio:
+  #   image: minio/minio:latest
+  #   command: server /data
+  #   restart: always
+  #   environment:
+  #     MINIO_ROOT_USER: minioaccesskey
+  #     MINIO_ROOT_PASSWORD: miniosecretkey
+  #   volumes:
+  #     - minio_data:/data
+  #   ports:
+  #     - "9000:9000"
 
 volumes:
   db-data:
-  minio_data:
+  # minio_data:
 
 networks:
   db-net:
